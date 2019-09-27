@@ -24,7 +24,7 @@ class Verification:
         
     @staticmethod
     def verify_transaction(transaction, get_balance, check_funds = True):
-        sender_balance = get_balance()
+        sender_balance = get_balance(transaction.sender)
         if check_funds:
             return sender_balance >= transaction.amount and Wallet.verify_transaction(transaction)
         else:
